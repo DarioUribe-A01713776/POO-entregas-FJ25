@@ -34,3 +34,8 @@ Permite crear órdenes de pedido seleccionando productos requeridos, asignando p
 
 Mostrar información de orden de pedido:
 Muestra los detalles de una orden generada, incluyendo los productos solicitados, proveedor(es) involucrados y la fecha de pedido.
+
+## UML
+![UML](https://github.com/DarioUribe-A01713776/POO-entregas-FJ25/blob/main/UML%20sistema%20inventario.png)
+Primer avance del sistema de inventario para restaurante. Se desarrolló el diagrama UML que representa la estructura general del sistema. Se definieron las clases principales, sus atributos, métodos clave y relaciones.
+
