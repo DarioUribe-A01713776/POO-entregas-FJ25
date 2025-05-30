@@ -17,6 +17,7 @@ protected:
     DiaCalendario fechaEntrada;
 
 public:
+    Producto();
     Producto(string n, float c, float cr, string u, DiaCalendario f);
 
     string getNombre() const;

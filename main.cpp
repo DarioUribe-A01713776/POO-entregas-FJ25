@@ -1,31 +1,41 @@
-#include "producto.h"
+#include "Producto.h"
+#include "Proveedor.h"
 #include "diaCalendario.h"
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    // Fecha para prueba
-    DiaCalendario hoy(22, 5, 2025);
+    // Crear fechas
+    DiaCalendario hoy(29, 5, 2025);
+    DiaCalendario entrada(25, 5, 2025);
+    DiaCalendario caducidad(5, 6, 2025);
 
-    // Crear objetos
-    Carniceria carne("Carne de res", 10.5, 5.0, "kg", "Res", 7, DiaCalendario(20, 5, 2025));
-    Abarrotes arroz("Arroz", 50, 25, "kg", "La Merced", "Saco", DiaCalendario(15, 8, 2025));
-    Cremeria queso("Queso Oaxaca", 15, 10, "kg", DiaCalendario(30, 5, 2025));
-    Verdura zanahoria("Zanahoria", 30, 10, "kg", 5, DiaCalendario(21, 5, 2025));
+    // Crear proveedor con fecha de entrega
+    DiaCalendario fechaEntrega(2, 6, 2025);
+    Proveedor proveedor("La Central", "ventas@central.com", fechaEntrega);
 
-    // Mostrar la info de cada producto
-    cout << "\n Inventario \n" << endl;
-    carne.mostrarInfo();
-    arroz.mostrarInfo();
-    queso.mostrarInfo();
-    zanahoria.mostrarInfo();
+    // Crear productos
+    Carniceria carne("Carne de res", 10.0, 15.0, "kg", "Res", 7, entrada);
+    Abarrotes arroz("Arroz integral", 20.0, 30.0, "kg", "Doña María", "Bolsa", caducidad);
+    Cremeria queso("Queso Oaxaca", 5.0, 10.0, "kg", caducidad);
+    Verdura lechuga("Lechuga romana", 8.0, 12.0, "piezas", 5, entrada);
 
-    // Probar sobrecarga de setCantidad
-    cout << "\nProbando sobrecarga " << endl;
-    carne.setCantidad(5.5, true); // suma 5.5 a la cantidad actual
-    carne.setCantidad(20); // cambia a 20 usando entero
-    carne.mostrarInfo();
+    // Agregar productos al proveedor (agregación)
+    proveedor.agregarProducto(&carne);
+    proveedor.agregarProducto(&arroz);
+    proveedor.agregarProducto(&queso);
+    proveedor.agregarProducto(&lechuga);
+
+    // Mostrar productos
+    cout << "\nProductos actuales:\n";
+    proveedor.mostrarProductos();
+
+    // Eliminar uno (por puntero)
+    proveedor.eliminarProducto(&arroz);
+
+    // Mostrar productos después de eliminar
+    cout << "\nDespués de eliminar 'Arroz integral':\n";
+    proveedor.mostrarProductos();
 
     return 0;
 }
