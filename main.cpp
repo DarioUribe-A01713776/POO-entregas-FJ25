@@ -1,5 +1,9 @@
-#include "Producto.h"
-#include "Proveedor.h"
+#include "producto.h"
+#include "carniceria.h"
+#include "abarrotes.h"
+#include "cremeria.h"
+#include "verdura.h"
+#include "proveedor.h"
 #include "diaCalendario.h"
 #include <iostream>
 using namespace std;
