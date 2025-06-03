@@ -23,9 +23,9 @@ public:
     string getContacto() const;
     DiaCalendario getFechaEntrega() const;
 
-    void setNombre(string n);
-    void setContacto(string c);
-    void setFechaEntrega(DiaCalendario f);
+    void setNombre(string);
+    void setContacto(string);
+    void setFechaEntrega(DiaCalendario);
 
     bool agregarProducto(Producto* producto);
     bool eliminarProducto(Producto* producto);

@@ -10,7 +10,7 @@ using namespace std;
 // Clase Producto
 class Producto {
 protected:
-    string nombre;
+    string nombre;  
     float cantidad;
     float cantidadRequerida;
     string unidad;
