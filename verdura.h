@@ -1,3 +1,9 @@
+// verdura.h
+// Descripción: Declaración de la clase Verdura, derivada de Producto.
+// Autor: Darío A. Uribe
+// Fecha: 03/06/2025
+// Notas: Representa productos tipo verdura con control de vida útil en días.
+
 #ifndef VERDURA_H
 #define VERDURA_H
 
@@ -22,20 +28,5 @@ public:
     bool util(const DiaCalendario&) const;
     void mostrarInfo() const override;
 };
-
-Verdura::Verdura(string n, float c, float cr, string u, int dv, DiaCalendario f)
-    : Producto(n, c, cr, u, f), diasVidaUtil(dv) {}
-
-int Verdura::getDiasVidaUtil() const { return diasVidaUtil; }
-void Verdura::setDiasVidaUtil(int dv) { diasVidaUtil = dv; }
-
-bool Verdura::util(const DiaCalendario& hoy) const {
-    return fechaEntrada.estaDentroDeDias(hoy, diasVidaUtil);
-}
-
-void Verdura::mostrarInfo() const {
-    cout << "[Verdura] " << nombre << ", " << cantidad << " " << unidad
-         << ", Vida útil: " << diasVidaUtil << " días" << endl;
-}
 
 #endif

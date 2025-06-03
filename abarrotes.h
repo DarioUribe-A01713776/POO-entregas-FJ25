@@ -1,3 +1,9 @@
+// abarrotes.h
+// Descripción: Declaración de la clase Abarrotes, derivada de Producto.
+// Autor: Darío A. Uribe
+// Fecha: 03/06/2025
+// Notas: Representa productos de abarrotes con atributos como marca, empaque y fecha de caducidad.
+
 // Clase Abarrotes
 #ifndef ABARROTES_H
 #define ABARROTES_H
@@ -29,30 +35,5 @@ public:
     void mostrarFcaducidad() const;
     void mostrarInfo() const override;
 };
-
-Abarrotes::Abarrotes(string n, float c, float cr, string u, string m, string e, DiaCalendario f)
-    : Producto(n, c, cr, u, f), marca(m), empaque(e), fCaducidad(f) {}
-
-string Abarrotes::getMarca() const { return marca; }
-string Abarrotes::getEmpaque() const { return empaque; }
-DiaCalendario Abarrotes::getFcaducidad() const { return fCaducidad; }
-
-void Abarrotes::setMarca(string m) { marca = m; }
-void Abarrotes::setEmpaque(string e) { empaque = e; }
-void Abarrotes::setFcaducidad(DiaCalendario f) { fCaducidad = f; }
-
-void Abarrotes::mostrarFcaducidad() const {
-    cout << "Fecha de caducidad: ";
-    fCaducidad.mostrar();
-    cout << endl;
-}
-
-void Abarrotes::mostrarInfo() const {
-    cout << "[Abarrotes] " << nombre << ", Marca: " << marca
-         << ", Empaque: " << empaque << ", Cantidad: " << cantidad << " " << unidad
-         << ", Caducidad: ";
-    fCaducidad.mostrar();
-    cout << endl;
-}
 
 #endif
