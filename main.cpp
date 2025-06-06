@@ -1,6 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+
 #include "producto.h"
 #include "carniceria.h"
 #include "abarrotes.h"
@@ -9,6 +10,7 @@
 #include "proveedor.h"
 #include "ordenPedido.h"
 #include "inventario.h"
+#include "reporteInventario.h"
 #include "diaCalendario.h"
 using namespace std;
 
@@ -47,7 +49,7 @@ int main() {
         if (opcion == 1) {
             string nombre, unidad, categoria;
             float cantidad, cantidadReq;
-            cout << "Categoría (Carniceria, Abarrotes, Verdura, Cremeria): "; getline(cin, categoria);
+            cout << "Categoria (Carniceria, Abarrotes, Verdura, Cremeria): "; getline(cin, categoria);
             cout << "Nombre: "; getline(cin, nombre);
             cout << "Cantidad existente: "; cin >> cantidad;
             cout << "Cantidad requerida: "; cin >> cantidadReq;
@@ -56,12 +58,12 @@ int main() {
             if (toLower(categoria) == "carniceria") {
                 string tipoAnimal; int dias; DiaCalendario fecha;
                 cout << "Tipo de animal: "; getline(cin, tipoAnimal);
-                cout << "Días de vida útil: "; cin >> dias;
+                cout << "Dias de vida util: "; cin >> dias;
                 fecha = DiaCalendario();
                 inventario.agregarProducto(new Carniceria(nombre, cantidad, cantidadReq, unidad, tipoAnimal, dias, fecha));
             } else if (toLower(categoria) == "verdura") {
                 int dias; DiaCalendario fecha;
-                cout << "Días de vida útil: "; cin >> dias;
+                cout << "Dias de vida util: "; cin >> dias;
                 fecha = DiaCalendario();
                 inventario.agregarProducto(new Verdura(nombre, cantidad, cantidadReq, unidad, dias, fecha));
             } else if (toLower(categoria) == "abarrotes") {
@@ -87,12 +89,13 @@ int main() {
             string nombre; float cant; char tipo;
             cout << "Nombre del producto: "; getline(cin, nombre);
             cout << "Cantidad: "; cin >> cant;
-            cout << "¿Es incremento? (s/n): "; cin >> tipo; cin.ignore();
+            cout << "Es incremento? (s/n): "; cin >> tipo; cin.ignore();
             inventario.actualizarStock(nombre, cant, tipo == 's');
         }
 
         else if (opcion == 4) {
-            inventario.mostrarInventario();
+            ReporteInventario reporte(inventario);
+            reporte.generar();
         }
 
         else if (opcion == 5) {
@@ -139,7 +142,7 @@ int main() {
                     Producto* p = inventario.buscarProducto(nombreProd);
                     if (p) pedido.agregarProducto(p);
                     else cout << "Producto no encontrado en inventario.\n";
-                    cout << "¿Agregar otro producto? (s/n): "; cin >> seguir; cin.ignore();
+                    cout << "Agregar otro producto? (s/n): "; cin >> seguir; cin.ignore();
                 } while (seguir == 's');
                 pedidos.push_back(pedido);
                 cout << "Pedido registrado.\n";

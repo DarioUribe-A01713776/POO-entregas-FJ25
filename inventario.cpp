@@ -1,8 +1,8 @@
 // inventario.cpp
-// Descripción: Implementación de la clase Inventario.
-// Autor: Darío A. Uribe
+// Descripcion: Implementacion de la clase Inventario con arreglos dinamicos.
+// Autor: Dario A. Uribe
 // Fecha: 06/06/2025
-// Notas: Define métodos para gestionar productos en inventario usando arreglos dinámicos.
+// Notas: Define metodos para manejar productos sin vectores.
 
 #include "inventario.h"
 #include <iostream>
@@ -15,9 +15,9 @@ Inventario::Inventario(int capacidadInicial)
 
 Inventario::~Inventario() {
     for (int i = 0; i < numProductos; ++i) {
-        delete productos[i];  
+        delete productos[i];
     }
-    delete[] productos;    
+    delete[] productos;
 }
 
 bool Inventario::agregarProducto(Producto* p) {
@@ -30,7 +30,7 @@ bool Inventario::agregarProducto(Producto* p) {
     }
 }
 
-bool Inventario::eliminarProducto(string nombre) {
+bool Inventario::eliminarProducto(const string& nombre) {
     for (int i = 0; i < numProductos; ++i) {
         if (productos[i]->getNombre() == nombre) {
             delete productos[i];
@@ -44,10 +44,27 @@ bool Inventario::eliminarProducto(string nombre) {
     return false;
 }
 
+Producto* Inventario::buscarProducto(const string& nombre) const {
+    for (int i = 0; i < numProductos; ++i) {
+        if (productos[i]->getNombre() == nombre) {
+            return productos[i];
+        }
+    }
+    return nullptr;
+}
+
+bool Inventario::actualizarStock(const string& nombre, float cantidad, bool incremento) {
+    Producto* p = buscarProducto(nombre);
+    if (p) {
+        p->setCantidad(cantidad, incremento);
+        return true;
+    }
+    return false;
+}
+
 void Inventario::mostrarInventario() const {
     cout << "=== Inventario ===" << endl;
     for (int i = 0; i < numProductos; ++i) {
-        productos[i]->mostrarInfo();   //Llama mostrarInfo() de forma polimórfica
-
+        productos[i]->mostrarInfo();
     }
 }

@@ -1,8 +1,8 @@
 // inventario.h
-// Descripción: Declaración de la clase Inventario.
-// Autor: Darío A. Uribe
+// Descripcion: Declaracion de la clase Inventario con arreglos dinamicos.
+// Autor: Dario A. Uribe
 // Fecha: 06/06/2025
-// Notas: Representa el inventario general usando arreglos dinámicos para almacenar productos.
+// Notas: Gestiona productos del inventario sin usar vectores, solo arreglos dinamicos.
 
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
@@ -22,7 +22,9 @@ public:
     ~Inventario();
 
     bool agregarProducto(Producto* p);
-    bool eliminarProducto(string nombre);
+    bool eliminarProducto(const string& nombre);
+    Producto* buscarProducto(const string& nombre) const;
+    bool actualizarStock(const string& nombre, float cantidad, bool incremento);
     void mostrarInventario() const;
 };
 
