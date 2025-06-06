@@ -49,5 +49,21 @@ Sistema inflexible: Si el sistema no permite agregar nuevas categorías o tipos 
 
 ## UML
 ![UML](https://github.com/DarioUribe-A01713776/POO-entregas-FJ25/blob/main/UML%20sistema%20inventario.png)
-Primer avance del sistema de inventario para restaurante. Se desarrolló el diagrama UML que representa la estructura general del sistema. Se definieron las clases principales, sus atributos, métodos clave y relaciones.
 
+## Compilar y ejecutar:
+g++ *.cpp
+.\a.exe
+
+## Avances
+
+Primer avance: Se desarrolló el diagrama UML que representa la estructura general del sistema. Se definieron las clases principales, sus atributos, métodos clave y relaciones.
+
+Segundo avance: Se programó la clase Producto, la cual funciona como clase base del sistema de inventario, junto con sus respectivas clases derivadas: Carniceria, Abarrotes, Verdura y Cremeria. Estas implementan herencia y métodos de acceso para gestionar las características específicas de cada tipo de producto.
+Además, se desarrolló la clase DiaCalendario, diseñada para manejar fechas relevantes en el sistema, como fechas de entrada y caducidad de productos, así como las fechas asociadas a proveedores y órdenes de pedido
+
+Tercer avance: Se implementó el concepto de polimorfismo mediante la sobreescritura del método mostrarInfo() en las clases derivadas de Producto, permitiendo mostrar información específica según el tipo de producto.
+Asimismo, se desarrollaron las clases Proveedor y OrdenPedido, que permiten gestionar los datos de contacto, fechas de entrega y productos suministrados por cada proveedor, así como la creación y manejo de órdenes de pedido con sus respectivas fechas, productos solicitados y proveedor asignado.
+
+Cuarto avance: Se incorporaron nuevas clases, incluyendo reporte.h, reporteInventario.h, reporteInventario.cpp, con el objetivo de aplicar el concepto de clases abstractas y reforzar el diseño orientado a objetos del sistema.
+Además, se implementó un archivo main funcional desde el cual es posible interactuar con el sistema mediante un menú que permite ejecutar diversas funcionalidades, como registrar productos, actualizar stock, agregar proveedores y generar órdenes de pedido.
+Aunque el sistema ya realiza múltiples operaciones de manera efectiva, aún no se ha integrado la funcionalidad para visualizar reportes, y se encuentra en fase de mejora continua.

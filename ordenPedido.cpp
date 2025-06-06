@@ -33,10 +33,10 @@ void OrdenPedido::setFechaEntrega(DiaCalendario fe) { fechaEntrega = fe; }
 bool OrdenPedido::agregarProducto(Producto* producto) {
     if (numProductos < 100) {
         productoSolicitado[numProductos++] = producto;
-        std::cout << "Producto agregado con éxito.\n";
+        std::cout << "Producto agregado con exito.\n";
         return true;
     } else {
-        std::cout << "No se pueden agregar más productos.\n";
+        std::cout << "No se pueden agregar mas productos.\n";
         return false;
     }
 }
@@ -48,7 +48,7 @@ bool OrdenPedido::eliminarProducto(Producto* producto) {
                 productoSolicitado[j] = productoSolicitado[j + 1];
             }
             --numProductos;
-            std::cout << "Producto eliminado con éxito.\n";
+            std::cout << "Producto eliminado con exito.\n";
             return true;
         }
     }

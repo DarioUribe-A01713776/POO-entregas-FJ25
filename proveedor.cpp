@@ -29,10 +29,10 @@ void Proveedor::setFechaEntrega(DiaCalendario f) { fechaEntrega = f; }
 bool Proveedor::agregarProducto(Producto* producto) {
     if (numProductos < 100) {
         productos[numProductos++] = producto;
-        cout << "Producto agregado con éxito.\n";
+        cout << "Producto agregado con exito.\n";
         return true;
     } else {
-        cout << "No se pueden agregar más productos.\n";
+        cout << "No se pueden agregar mas productos.\n";
         return false;
     }
 }
