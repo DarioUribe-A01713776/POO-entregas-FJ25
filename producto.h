@@ -34,12 +34,12 @@ public:
 
     void setNombre(string);
     void setCantidad(float);
-    void setCantidad(int); // Sobrecarga con int
-    void setCantidad(float, bool); // Sobrecarga con incremento
+    void setCantidad(int); // sobrecarga con int
+    void setCantidad(float, bool); // sobrecarga con parametro adicional
     void setCantidadRequerida(float);
     void setUnidad(string);
     void setFechaEntrada(DiaCalendario);
 
-    virtual void mostrarInfo() const;
+    virtual void mostrarInfo() const; //sobreescritura de métodos
 };
 #endif

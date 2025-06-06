@@ -29,7 +29,7 @@ int main() {
     cout << "==============================\n";
 
     do {
-        cout << "\nSeleccione una opción:\n";
+        cout << "\nSeleccione una opcion:\n";
         cout << "1. Registrar nuevo producto\n";
         cout << "2. Eliminar producto\n";
         cout << "3. Actualizar stock\n";
@@ -38,9 +38,9 @@ int main() {
         cout << "6. Eliminar proveedor\n";
         cout << "7. Mostrar proveedores\n";
         cout << "8. Armar orden de pedido\n";
-        cout << "9. Mostrar órdenes de pedido\n";
+        cout << "9. Mostrar ordenes de pedido\n";
         cout << "0. Salir\n";
-        cout << "Opción: ";
+        cout << "Opcion: ";
         cin >> opcion;
         cin.ignore();
 

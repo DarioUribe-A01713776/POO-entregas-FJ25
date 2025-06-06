@@ -55,6 +55,6 @@ bool Proveedor::eliminarProducto(Producto* producto) {
 void Proveedor::mostrarProductos() {
     cout << "Productos del proveedor: " << nombre << endl;
     for (int i = 0; i < numProductos; ++i) {
-        productos[i]->mostrarInfo();
+        productos[i]->mostrarInfo();   //Llama mostrarInfo() de forma polimórfica
     }
 }

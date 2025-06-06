@@ -13,7 +13,6 @@
 
 using namespace std;
 
-// Implementación de métodos
 
 OrdenPedido::OrdenPedido()
     : idPedido(0), proveedor(), fechaPedido(), fechaEntrega(), numProductos(0) {}
@@ -44,7 +43,7 @@ bool OrdenPedido::agregarProducto(Producto* producto) {
 
 bool OrdenPedido::eliminarProducto(Producto* producto) {
     for (int i = 0; i < numProductos; ++i) {
-        if (productoSolicitado[i] == producto) {  // Comparación por dirección
+        if (productoSolicitado[i] == producto) {  
             for (int j = i; j < numProductos - 1; ++j) {
                 productoSolicitado[j] = productoSolicitado[j + 1];
             }
@@ -57,12 +56,13 @@ bool OrdenPedido::eliminarProducto(Producto* producto) {
     return false;
 }
 
+//Llama mostrarInfo() de forma polimórfica
 void OrdenPedido::mostrarPedido() const {
     std::cout << "Pedido #" << idPedido << " - Fecha de pedido: " << fechaPedido << std::endl;
     std::cout << "Fecha de entrega: " << fechaEntrega << std::endl;
     std::cout << "Proveedor: " << proveedor.getNombre() << std::endl;
     std::cout << "Productos solicitados:" << std::endl;
     for (int i = 0; i < numProductos; ++i) {
-        std::cout << "- " << productoSolicitado[i]->getNombre() << std::endl;
+    productoSolicitado[i]->mostrarInfo();  
     }
 }

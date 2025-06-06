@@ -35,6 +35,8 @@ public:
 
 };
 
+// sobrecarga del operador << para imprimir objetos DiaCalendario.
+// permite usar cout << fecha directamente con formato día/mes/año.
 ostream& operator<<(ostream& os, const DiaCalendario& fecha);
 
 #endif

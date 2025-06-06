@@ -1,48 +1,53 @@
+// inventario.cpp
+// Descripción: Implementación de la clase Inventario.
+// Autor: Darío A. Uribe
+// Fecha: 06/06/2025
+// Notas: Define métodos para gestionar productos en inventario usando arreglos dinámicos.
+
 #include "inventario.h"
 #include <iostream>
 using namespace std;
 
-bool Inventario::agregarProducto(Producto* p) {
-    productos.push_back(p);
-    cout << "Producto agregado al inventario.\n";
-    return true;
+Inventario::Inventario(int capacidadInicial)
+    : numProductos(0), capacidad(capacidadInicial) {
+    productos = new Producto*[capacidad];
 }
 
-bool Inventario::eliminarProducto(const std::string& nombre) {
-    for (auto it = productos.begin(); it != productos.end(); ++it) {
-        if ((*it)->getNombre() == nombre) {
-            productos.erase(it);
-            cout << "Producto eliminado del inventario.\n";
+Inventario::~Inventario() {
+    for (int i = 0; i < numProductos; ++i) {
+        delete productos[i];  
+    }
+    delete[] productos;    
+}
+
+bool Inventario::agregarProducto(Producto* p) {
+    if (numProductos < capacidad) {
+        productos[numProductos++] = p;
+        return true;
+    } else {
+        cout << "Inventario lleno." << endl;
+        return false;
+    }
+}
+
+bool Inventario::eliminarProducto(string nombre) {
+    for (int i = 0; i < numProductos; ++i) {
+        if (productos[i]->getNombre() == nombre) {
+            delete productos[i];
+            for (int j = i; j < numProductos - 1; ++j) {
+                productos[j] = productos[j + 1];
+            }
+            --numProductos;
             return true;
         }
     }
-    cout << "Producto no encontrado.\n";
     return false;
 }
 
-Producto* Inventario::buscarProducto(const std::string& nombre) {
-    for (Producto* p : productos) {
-        if (p->getNombre() == nombre) {
-            return p;
-        }
-    }
-    return nullptr;
-}
-
 void Inventario::mostrarInventario() const {
-    cout << "----- Inventario -----\n";
-    for (Producto* p : productos) {
-        p->mostrarInfo();
-    }
-    cout << "-----------------------\n";
-}
+    cout << "=== Inventario ===" << endl;
+    for (int i = 0; i < numProductos; ++i) {
+        productos[i]->mostrarInfo();   //Llama mostrarInfo() de forma polimórfica
 
-void Inventario::actualizarStock(const std::string& nombre, float nuevaCantidad, bool esIncremento) {
-    Producto* p = buscarProducto(nombre);
-    if (p) {
-        p->setCantidad(nuevaCantidad, esIncremento);
-        cout << "Stock actualizado.\n";
-    } else {
-        cout << "Producto no encontrado.\n";
     }
 }
