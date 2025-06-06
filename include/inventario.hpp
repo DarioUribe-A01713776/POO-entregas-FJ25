@@ -26,6 +26,9 @@ public:
     Producto* buscarProducto(const string& nombre) const;
     bool actualizarStock(const string& nombre, float cantidad, bool incremento);
     void mostrarInventario() const;
+
+    Producto** getTodos() const;
+    int getNumProductos() const;
 };
 
 #endif

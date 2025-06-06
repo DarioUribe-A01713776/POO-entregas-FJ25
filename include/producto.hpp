@@ -41,5 +41,6 @@ public:
     void setFechaEntrada(DiaCalendario);
 
     virtual void mostrarInfo() const; //sobreescritura de métodos
+    
 };
 #endif

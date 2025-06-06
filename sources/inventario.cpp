@@ -68,3 +68,12 @@ void Inventario::mostrarInventario() const {
         productos[i]->mostrarInfo();
     }
 }
+
+Producto** Inventario::getTodos() const {
+    return productos;
+}
+
+int Inventario::getNumProductos() const {
+    return numProductos;
+}
+

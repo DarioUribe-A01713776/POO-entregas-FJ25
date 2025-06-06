@@ -4,6 +4,7 @@
 // Fecha: 06/06/2025
 // Notas: Implementa la clase Reporte para mostrar productos del inventario.
 
+
 #ifndef REPORTEINVENTARIO_H
 #define REPORTEINVENTARIO_H
 
@@ -16,7 +17,6 @@ private:
 
 public:
     ReporteInventario(const Inventario& inv);
-
     void generar() const override;
 };
 
