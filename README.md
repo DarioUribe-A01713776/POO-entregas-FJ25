@@ -4,7 +4,7 @@ Repositorio para la entrega del proyecto - Programación orientada a objetos (Gp
 # TC1030 Proyecto
 <img src="https://github.com/DarioUribe-A01713776/POO-entregas-FJ25/blob/main/files/log.jpg"      alt="Logo Entre Abuelas"      style="
        display: block;
-       width: 100%;
+       width: 50%;
        max-height: 100px;
        object-fit: contain;" />
 
