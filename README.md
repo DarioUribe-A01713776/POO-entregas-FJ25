@@ -51,8 +51,12 @@ Sistema inflexible: Si el sistema no permite agregar nuevas categorías o tipos 
 ![UML](https://github.com/DarioUribe-A01713776/POO-entregas-FJ25/blob/main/UML%20sistema%20inventario.png)
 
 ## Compilar y ejecutar:
-g++ *.cpp
-.\a.exe
+
+Compilar: 
+g++ -Iinclude sources/*.cpp -o inventario
+
+Ejecutar:
+.\inventario.exe
 
 ## Avances
 
@@ -67,3 +71,5 @@ Asimismo, se desarrollaron las clases Proveedor y OrdenPedido, que permiten gest
 Cuarto avance: Se incorporaron nuevas clases, incluyendo reporte.h, reporteInventario.h, reporteInventario.cpp, con el objetivo de aplicar el concepto de clases abstractas y reforzar el diseño orientado a objetos del sistema.
 Además, se implementó un archivo main funcional desde el cual es posible interactuar con el sistema mediante un menú que permite ejecutar diversas funcionalidades, como registrar productos, actualizar stock, agregar proveedores y generar órdenes de pedido.
 Aunque el sistema ya realiza múltiples operaciones de manera efectiva, aún no se ha integrado la funcionalidad para visualizar reportes, y se encuentra en fase de mejora continua.
+
+#Ultimo avance: Puli todo el proyecto: revisamos y limpiamos los headers para quitar directivas duplicadas, corregimos la clase Proveedor agregándole el constructor y métodos para manejar sus productos, e implementamos las clases de reporte (ReporteInventario y ReporteOrdenPedido) como derivadas de la interfaz abstracta Reporte. Además añadimos en Inventario el método para buscar productos, lo que nos permitió ajustar el main.cpp para validar entradas, actualizar stock usando punteros y generar los reportes de inventario y pedidos en lugar de imprimirlo todo manualmente. Con esto ya funciona el flujo completo de registro, eliminación y visualización respetando las clases abstractas de reporte.
