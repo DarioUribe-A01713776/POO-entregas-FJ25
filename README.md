@@ -2,8 +2,7 @@
 Repositorio para la entrega del proyecto - Programación orientada a objetos (Gpo 301)
 
 # TC1030 Proyecto
-<img src="https://github.com/DarioUribe-A01713776/POO-entregas-FJ25/blob/main/files/log.jpg" width="50%" alt="LOGO" />
-
+<img src="https://github.com/DarioUribe-A01713776/POO-entregas-FJ25/blob/main/files/log.jpg" width="30%"  height="100" alt="LOGO" />
 
 # Gestión de inventario para Restaurantes
 Actualmente, trabajo en un restaurante el cual necesita optimizar el control de su inventario. Al finalizar cada turno, el encargado de cocina registra manualmente el stock disponible, clasificándolo en cuatro secciones: Carnicería, Abarrotes, Verduras y Cremería. En cada categoría se anota la cantidad existente y la cantidad requerida de productos.
