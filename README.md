@@ -53,11 +53,11 @@ Sistema inflexible: Si el sistema no permite agregar nuevas categorías o tipos 
 ## Compilar y ejecutar:
 
 Compilar: 
-##
+
 g++ -Iinclude sources/*.cpp -o inventario
 
 Ejecutar:
-##
+
 .\inventario.exe
 
 ## Avances
