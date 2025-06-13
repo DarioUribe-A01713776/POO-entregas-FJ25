@@ -26,13 +26,13 @@ Permite registrar nuevos proveedores con su información de contacto, fecha de e
 Eliminar proveedores:
 Elimina del sistema a proveedores que ya no trabajan con el restaurante o que han sido reemplazados.
 
-Mostrar información de proveedores:
+Reporte de proveedores:
 Visualiza los datos de cada proveedor, incluyendo sus productos asignados y detalles de contacto.
 
 Armar orden de pedido:
 Permite crear órdenes de pedido seleccionando productos requeridos, asignando proveedor(es) y definiendo la fecha de solicitud.
 
-Mostrar información de orden de pedido:
+Reporte de orden de pedido:
 Muestra los detalles de una orden generada, incluyendo los productos solicitados, proveedor(es) involucrados y la fecha de pedido.
 
 ## Posibles casos en que el sistema podría dejar de funcionar
