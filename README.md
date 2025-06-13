@@ -2,6 +2,8 @@
 Repositorio para la entrega del proyecto - Programación orientada a objetos (Gpo 301)
 
 # TC1030 Proyecto
+![LOGO](![UML](https://github.com/DarioUribe-A01713776/POO-entregas-FJ25/blob/main/UML%20sistema%20inventario.png))
+
 # Gestión de inventario para Restaurantes
 Actualmente, trabajo en un restaurante el cual necesita optimizar el control de su inventario. Al finalizar cada turno, el encargado de cocina registra manualmente el stock disponible, clasificándolo en cuatro secciones: Carnicería, Abarrotes, Verduras y Cremería. En cada categoría se anota la cantidad existente y la cantidad requerida de productos.
 
