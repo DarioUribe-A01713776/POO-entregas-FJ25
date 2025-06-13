@@ -18,18 +18,15 @@ using namespace std;
 class Abarrotes : public Producto {
 private:
     string marca;
-    string empaque;
     DiaCalendario fCaducidad;
 
 public:
-    Abarrotes(string n, float c, float cr, string u, string m, string e, DiaCalendario f);
+    Abarrotes(string n, float c, float cr, string u, string m, DiaCalendario f);
 
     string getMarca() const;
-    string getEmpaque() const;
     DiaCalendario getFcaducidad() const;
 
     void setMarca(string);
-    void setEmpaque(string);
     void setFcaducidad(DiaCalendario);
 
     void mostrarFcaducidad() const;

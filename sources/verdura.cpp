@@ -24,5 +24,5 @@ bool Verdura::util(const DiaCalendario& hoy) const {
 
 void Verdura::mostrarInfo() const {
     cout << "[Verdura] " << nombre << ", " << cantidad << " " << unidad
-         << ", Vida útil: " << diasVidaUtil << " días" << endl;
+         << ", Vida util: " << diasVidaUtil << " dias" << endl;
 }

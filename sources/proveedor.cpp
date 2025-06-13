@@ -1,60 +1,64 @@
 // proveedor.cpp
 // Descripción: Implementación de la clase Proveedor.
 // Autor: Darío A. Uribe
-// Fecha: 03/06/2025
+// Fecha: 10/06/2025
 // Notas: Define métodos para administrar datos del proveedor y su lista de productos.
 
 #include "proveedor.h"
-#include "producto.h"
-#include "diaCalendario.h"
 #include <iostream>
-#include <string>
 
-using namespace std;
-
-Proveedor::Proveedor()
-    : nombre(""), contacto(""), fechaEntrega(), numProductos(0) {}
-
-Proveedor::Proveedor(string n, string c, DiaCalendario f)
-    : nombre(n), contacto(c), fechaEntrega(f), numProductos(0) {}
-
-string Proveedor::getNombre() const { return nombre; }
-string Proveedor::getContacto() const { return contacto; }
-DiaCalendario Proveedor::getFechaEntrega() const { return fechaEntrega; }
-
-void Proveedor::setNombre(string n) { nombre = n; }
-void Proveedor::setContacto(string c) { contacto = c; }
-void Proveedor::setFechaEntrega(DiaCalendario f) { fechaEntrega = f; }
-
-bool Proveedor::agregarProducto(Producto* producto) {
-    if (numProductos < 100) {
-        productos[numProductos++] = producto;
-        cout << "Producto agregado con exito.\n";
-        return true;
-    } else {
-        cout << "No se pueden agregar mas productos.\n";
-        return false;
+Proveedor::Proveedor(const std::string& nombre, const std::string& contacto, const std::string& diaEntrega,int cap)
+    : nombre(nombre),
+      contacto(contacto),
+      diaSemanaEntrega(diaEntrega),
+      capProductos(cap),
+      numProductos(0)
+{
+    productos = new Producto*[capProductos];
+    for (int i = 0; i < capProductos; ++i) {
+        productos[i] = nullptr;
     }
 }
 
-bool Proveedor::eliminarProducto(Producto* producto) {
-    for (int i = 0; i < numProductos; ++i) {
-        if (productos[i] == producto) {
-            for (int j = i; j < numProductos - 1; ++j) {
-                productos[j] = productos[j + 1];
+Proveedor::~Proveedor() {
+    delete[] productos;
+}
+
+const std::string& Proveedor::getNombre() const {
+    return nombre;
+}
+
+const std::string& Proveedor::getContacto() const {
+    return contacto;
+}
+
+const std::string& Proveedor::getDiaSemanaEntrega() const {
+    return diaSemanaEntrega;
+}
+
+void Proveedor::mostrarProductos() const {
+    std::cout << "Proveedor: " << nombre << std::endl;
+    if (numProductos == 0) {
+        std::cout << "  (Sin productos)" << std::endl;
+    } else {
+        for (int i = 0; i < numProductos; ++i) {
+            if (productos[i]) {
+                std::cout << "  - " << productos[i]->getNombre() << std::endl;
             }
-            --numProductos;
-            cout << "Producto eliminado con exito.\n";
-            return true;
         }
     }
-    cout << "Producto no encontrado.\n";
-    return false;
 }
 
-void Proveedor::mostrarProductos() {
-    cout << "Productos del proveedor: " << nombre << endl;
-    for (int i = 0; i < numProductos; ++i) {
-        productos[i]->mostrarInfo();   //Llama mostrarInfo() de forma polimórfica
+void Proveedor::agregarProducto(Producto* p) {
+    if (numProductos >= capProductos) {
+        // Duplicar capacidad
+        int nuevaCap = capProductos * 2;
+        Producto** tmp = new Producto*[nuevaCap];
+        for (int i = 0; i < numProductos; ++i) tmp[i] = productos[i];
+        for (int i = numProductos; i < nuevaCap; ++i) tmp[i] = nullptr;
+        delete[] productos;
+        productos = tmp;
+        capProductos = nuevaCap;
     }
+    productos[numProductos++] = p;
 }

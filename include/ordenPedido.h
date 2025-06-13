@@ -1,9 +1,8 @@
 // ordenPedido.h
 // Descripción: Declaración de la clase OrdenPedido, que gestiona pedidos a proveedores.
 // Autor: Darío A. Uribe
-// Fecha: 03/06/2025
+// Fecha: 10/06/2025
 // Notas: Incluye productos solicitados, proveedor, fechas y métodos para manipular el pedido.
-
 
 #ifndef ORDENPEDIDO_H
 #define ORDENPEDIDO_H
@@ -11,43 +10,40 @@
 #include "producto.h"
 #include "proveedor.h"
 #include "diaCalendario.h"
-#include <string>
 #include <iostream>
 
-using namespace std;
-
 class OrdenPedido {
-private: 
+private:
     int idPedido;
-    Producto* productoSolicitado[100];
-    Proveedor proveedor;
+    Producto** productosSolicitados;  // arreglo dinámico de punteros a Producto
+    int numProductos;
+    int capProductos;
+    Proveedor* proveedor;             // puntero a proveedor
     DiaCalendario fechaPedido;
     DiaCalendario fechaEntrega;
-    int numProductos;
+
+    void expandirProductos();            
 
 public:
-    // Constructores
-    OrdenPedido();
-    OrdenPedido(int id, Proveedor p, DiaCalendario fp, DiaCalendario fe);
+    OrdenPedido(int cap = 10);
+    ~OrdenPedido();
 
-    // Getters
+    
+    OrdenPedido(int id, Proveedor* p,const DiaCalendario& fp, const DiaCalendario& fe);
+
     int getIdPedido() const;
-    Proveedor getProveedor() const;
+    Proveedor* getProveedor() const;
     DiaCalendario getFechaPedido() const;
     DiaCalendario getFechaEntrega() const;
 
-    // Setters
     void setIdPedido(int id);
-    void setProveedor(Proveedor p);
-    void setFechaPedido(DiaCalendario fp);
-    void setFechaEntrega(DiaCalendario fe);
+    void setProveedor(Proveedor* p);
+    void setFechaPedido(const DiaCalendario& fp);
+    void setFechaEntrega(const DiaCalendario& fe);
 
-    // Métodos funcionales
-    
     bool agregarProducto(Producto* producto);
-    bool eliminarProducto(Producto* producto);  // Comparación por puntero
+    bool eliminarProducto(Producto* producto);
     void mostrarPedido() const;
 };
 
 #endif
-

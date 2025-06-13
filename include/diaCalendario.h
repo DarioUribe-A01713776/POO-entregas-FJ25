@@ -17,8 +17,8 @@ private:
     int anio;
 
 public:
-    DiaCalendario(int d = 1, int m = 1, int a = 2000) 
-        : dia(d), mes(m), anio(a) {}
+    DiaCalendario() : dia(1), mes(1), anio(2000) {}
+    DiaCalendario(int d, int m, int a) : dia(d), mes(m), anio(a) {}
 
     int getDia() const;
     int getMes() const;
